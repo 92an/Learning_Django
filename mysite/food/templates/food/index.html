@@ -1,4 +1,4 @@
-{% load static %}
+{% extends "food/base.html" %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,29 +6,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'food/style.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Document</title>
+   <title>Document</title>
 </head>
 <body>
 
-    <nav class="navbar navbar-dark bg-dark">
-        <a href="#" class="navbar-brand">FoodApp</a>
-        <div class="navbar">
-            <a href="#" class="nav-item nav-link">Add item</a>
-            <a href="#" class="nav-item nav-link">Delete item</a>
-            <a href="#" class="nav-item nav-link">View item</a>
-        </div>
-    </nav>
+    {% block body %}
+        {% for item in item_list %}
 
-    {% for item in item_list %}
-        <ul>
-            <li>
-                <a href="{% url 'food:detail' item.id %}">{{ item.id }} -- {{ item.item_name }} -- {{ item.item_desc }}</a>
-            </li>
-        </ul>
-    {% endfor %}
-    
+        <div class="row">
+            <div class="col-md-3 offset-md-2">
+                <img src="{{ item.item_img }}" class="card" height="150px">
+            </div>
+
+            <div class="col-md-4">
+                <h3>{{item.item_name}}</h3>
+                <h5>{{item.item_desc}}</h5>
+                <h6>${{item.item_price}}</h6>
+            </div>
+
+            <div class="col-md-2">
+                <a href="{% url 'food:detail' item.id %}" class="btn btn-success">Details</a>
+            </div>
+        </div>
+
+            <!-- <ul>
+                <li>
+                    <a href="{% url 'food:detail' item.id %}">{{ item.id }} -- {{ item.item_name }} -- {{ item.item_desc }}</a>
+                </li>
+            </ul> -->
+        {% endfor %}
+    {% endblock %}
 </body>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </html>
