@@ -28,12 +28,7 @@
                 <a href="{% url 'food:detail' item.id %}" class="btn btn-success">Details</a>
             </div>
         </div>
-
-            <!-- <ul>
-                <li>
-                    <a href="{% url 'food:detail' item.id %}">{{ item.id }} -- {{ item.item_name }} -- {{ item.item_desc }}</a>
-                </li>
-            </ul> -->
+        
         {% endfor %}
     {% endblock %}
 </body>
