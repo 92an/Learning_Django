@@ -8,7 +8,7 @@
                 .<div class="card">
                     <div class="card-header bg-info text-white">
                         <div class="card-title">
-                            Register
+                            Add Item
                         </div>
                     </div>
                     <div class="card-body">
@@ -17,17 +17,14 @@
                             {% for field in form %}
                                 <div class="form-group">
                                     {{ field.name }}
-                                    <br>
                                     {{ field }}
                                 </div>
                             {% endfor %}
-                            <button type="submit" class="btn-info">Signup</button>
+                            <button type="submit" class="btn-info">Add</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 {% endblock %}
-
