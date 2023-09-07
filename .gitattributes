@@ -1,1 +1,3 @@
 *.py ident
+*.py filter=indent
+
